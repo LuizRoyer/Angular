@@ -1,0 +1,29 @@
+<app-topo></app-topo>
+
+<div *ngIf="jogoEmAndamento else fimDejogo">
+    <app-painel (encerrarJogo)="encerrarJogo($event)"></app-painel>
+</div>
+
+<ng-template #fimDejogo>
+    <div *ngIf="tipoEncerramento ==='derrota' else fimJogoVitoria" class="container" style="margin-top: 50px;">
+        <div class="row">
+            <div class="col">
+                <h3 style="color: red;">Fim de Jogo, Infelizmente você perdeu !!</h3>
+                <button class="btn btn-primary" (click)="reiniciarJogo()">Jogar Novamente</button>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #fimJogoVitoria>
+    <div class="container" style="margin-top: 50px;">
+        <div class="row">
+            <div class="col">
+                <h1 style="color: green;">Fim de Jogo, Parabéns você Ganhou !!</h1>
+
+                <img src="https://static.vecteezy.com/system/resources/previews/000/680/151/non_2x/gold-trophy-with-the-name-plate.jpg">
+                <button style="margin-top:320px ;" class="btn btn-primary" (click)="reiniciarJogo()">Jogar Novamente</button>
+            </div>
+        </div>
+    </div>
+</ng-template>
